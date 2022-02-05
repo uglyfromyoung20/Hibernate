@@ -16,8 +16,7 @@ public class Test4 {
         try {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
-            Employee employee = session.get(Employee.class , 1);
-            employee.setSalary(1500); // просто изменяем данные полученные из базы данных , и уже измененные данные передаем в таблицу
+            session.createQuery("update Employee set salary = 50 where name ='Oleg' ").executeUpdate();
 
             session.getTransaction().commit();
 
