@@ -13,10 +13,11 @@ public class Test1 {
                 .buildSessionFactory();
         try {
             Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
-            Employee employee = new Employee("Kirill", "Krilov", "JavaDeveloper", 7000);
+            Employee employee = new Employee("Akmal", "Dusmuratov", "Js", 100000);
             session.beginTransaction();
             session.save(employee);
             session.getTransaction().commit(); // закрытие сессии
+            System.out.println("Done");
         }
         finally {
             factory.close();         // если выбросится исключение , то фабрика просто закроется
