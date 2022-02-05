@@ -13,15 +13,15 @@ public class Test2 {
                 .buildSessionFactory();
         try {
             Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
-            Employee employee = new Employee("Oleg", "Sidorov", "HTML", 1323);
+            Employee employee = new Employee("Oleg", "Malov", "HTML", 1323);
             session.beginTransaction();
             session.save(employee);
-            session.getTransaction().commit(); // закрытие сессии
+           // session.getTransaction().commit(); // закрытие сессии
 
             int myId = employee.getId(); //Id не будет пустым , так как база данных сама назначит его и передаст нам
 
-            session = factory.getCurrentSession();
-            session.beginTransaction();
+            //session = factory.getCurrentSession();
+            //session.beginTransaction();
             Employee employee1 = session.get(Employee.class , myId) ; // запрос у базы работника по его ID
             session.getTransaction().commit();
             System.out.println(employee1);
