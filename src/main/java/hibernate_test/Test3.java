@@ -16,8 +16,10 @@ public class Test3 {
                 .buildSessionFactory();
         try {
             Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
+            Employee employee = new Employee("Olev", "Vilov", "Java", 1000000);
             session.beginTransaction();
-            List<Employee> emps = session.createQuery("from Employee"+" where name ='Oleg' AND salary>125213123").getResultList(); // Получение всех людей из таблицы
+            session.save(employee);
+            List<Employee> emps = session.createQuery("from Employee"+" where name ='Oleg' AND salary>1325").getResultList(); // Получение всех людей из таблицы
             for(Employee e : emps){
                 System.out.println(e);
             }
