@@ -17,7 +17,7 @@ public class Test3 {
         try {
             Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
             session.beginTransaction();
-            List<Employee> emps = session.createQuery("from Employee").getResultList(); // Получение всех людей из таблицы
+            List<Employee> emps = session.createQuery("from Employee"+" where name ='Kirill'").getResultList(); // Получение всех людей из таблицы
             for(Employee e : emps){
                 System.out.println(e);
             }
