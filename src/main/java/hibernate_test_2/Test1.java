@@ -43,9 +43,10 @@ public class Test1 {
 
 
             session.beginTransaction();
-            Employee emp = session.get(Employee.class,10);
+            Employee emp = session.get(Employee.class,2);
+            session.delete(emp);
             session.getTransaction().commit(); // закрытие сессии
-            System.out.println(emp.getEmpDetail());
+
             System.out.println("Done");
 
         }
