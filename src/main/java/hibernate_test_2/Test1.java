@@ -13,6 +13,7 @@ public class Test1 {
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
+        Session session = null;
         try {
 //            Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
 //
@@ -37,18 +38,19 @@ public class Test1 {
 //            session.getTransaction().commit(); // закрытие сессии
 //
 //            System.out.println("Done");
-            Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
+             session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
 
 
 
             session.beginTransaction();
-            Employee emp = session.get(Employee.class,1);
+            Employee emp = session.get(Employee.class,10);
             session.getTransaction().commit(); // закрытие сессии
             System.out.println(emp.getEmpDetail());
             System.out.println("Done");
 
         }
         finally {
+            session.close();
             factory.close();         // если выбросится исключение , то фабрика просто закроется
         }
     }
