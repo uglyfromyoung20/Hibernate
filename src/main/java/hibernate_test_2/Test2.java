@@ -21,10 +21,17 @@ public class Test2 {
 
 
 
+//            session.beginTransaction();
+//           Detail detail = session.get(Detail.class , 4);
+//            System.out.println(detail.getEmployee());
+//            session.getTransaction().commit(); // закрытие сессии
+
+
+
             session.beginTransaction();
-           Detail detail = session.get(Detail.class , 4);
-            System.out.println(detail.getEmployee());
-            session.getTransaction().commit(); // закрытие сессии
+          Detail detail = session.get(Detail.class , 4);
+            session.delete(detail);
+          session.getTransaction().commit(); // закрытие сессии
 
             System.out.println("Done");
 
