@@ -27,18 +27,31 @@ public class Test1 {
 //            session.getTransaction().commit(); // закрытие сессии
 //
 //            System.out.println("Done");
+//            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
+//            session.beginTransaction();
+//
+//           Employee employee = session.get(Employee.class , 1);
+//
+//            System.out.println(employee);
+//            System.out.println(employee.getDepartment());
+//
+//
+//            session.getTransaction().commit(); // закрытие сессии
+//
+//            System.out.println("Done");
             session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
             session.beginTransaction();
 
-           Employee employee = session.get(Employee.class , 1);
+            Employee employee = session.get(Employee.class , 1);
 
-            System.out.println(employee);
-            System.out.println(employee.getDepartment());
+            session.delete(employee);
 
 
             session.getTransaction().commit(); // закрытие сессии
 
             System.out.println("Done");
+
+
 
 
         }
