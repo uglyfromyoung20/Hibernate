@@ -17,13 +17,13 @@ public class Test2 {
         try {
 //
              session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
-Employee employee = new Employee("Akmal","Dusmuratov","Js",213423);
-Detail detail = new Detail("Samara","324342123","fgdw@mail.ru");
-     employee.setEmpDetail(detail); // важно так же и работнику добавить детали
-     detail.setEmployee(employee);
+
+
+
 
             session.beginTransaction();
-            session.save(detail);
+           Detail detail = session.get(Detail.class , 4);
+            System.out.println(detail.getEmployee());
             session.getTransaction().commit(); // закрытие сессии
 
             System.out.println("Done");
