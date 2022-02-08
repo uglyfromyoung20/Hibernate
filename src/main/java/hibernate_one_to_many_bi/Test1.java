@@ -16,15 +16,13 @@ public class Test1 {
         Session session = null;
         try {
 //
-             session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
-       Department dep = new Department("IT",1200,300);
-
-               Employee emp1 =  new Employee("Alexey","Altyshkin ",800);
-               Employee emp2 =  new Employee("Alexey", "Maklov", 900);
-            dep.addEmployeeToDepartment(emp1);
-            dep.addEmployeeToDepartment(emp2);
+            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
             session.beginTransaction();
-session.save(dep);
+
+            Department department = session.get(Department.class , 1);
+
+            System.out.println(department);
+            System.out.println(department.getEmps());
 
             session.getTransaction().commit(); // закрытие сессии
 
