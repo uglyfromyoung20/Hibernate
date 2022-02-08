@@ -14,16 +14,37 @@ public class Test1 {
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
         try {
+//            Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
+//
+//            Employee employee = new Employee("Alexey","Altyshkin","IT",1000);
+//
+//            Detail detail  = new Detail("Samara","83728442","kfnsl@mail.ru");
+//            employee.setEmpDetail(detail);
+//            session.beginTransaction();
+//            session.save(employee);
+//            session.getTransaction().commit(); // закрытие сессии
+//
+//            System.out.println("Done");
+
+//            Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
+//
+//            Employee employee = new Employee("Kirill","Krilov","JavaDeveloper",1046);
+//
+//            Detail detail  = new Detail("Syzran","8372342432422","kmaster@mail.ru");
+//            employee.setEmpDetail(detail);
+//            session.beginTransaction();
+//            session.save(employee);
+//            session.getTransaction().commit(); // закрытие сессии
+//
+//            System.out.println("Done");
             Session session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
 
-            Employee employee = new Employee("Alexey","Altyshkin","IT",1000);
 
-            Detail detail  = new Detail("Samara","83728442","kfnsl@mail.ru");
-            employee.setEmpDetail(detail);
+
             session.beginTransaction();
-    session.save(employee);
+            Employee emp = session.get(Employee.class,1);
             session.getTransaction().commit(); // закрытие сессии
-
+            System.out.println(emp.getEmpDetail());
             System.out.println("Done");
 
         }
