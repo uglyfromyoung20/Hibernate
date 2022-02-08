@@ -16,17 +16,30 @@ public class Test1 {
         Session session = null;
         try {
 //
+//            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
+//            session.beginTransaction();
+//
+//            Department department = session.get(Department.class , 1);
+//
+//            System.out.println(department);
+//            System.out.println(department.getEmps());
+//
+//            session.getTransaction().commit(); // закрытие сессии
+//
+//            System.out.println("Done");
             session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
             session.beginTransaction();
 
-            Department department = session.get(Department.class , 1);
+           Employee employee = session.get(Employee.class , 1);
 
-            System.out.println(department);
-            System.out.println(department.getEmps());
+            System.out.println(employee);
+            System.out.println(employee.getDepartment());
+
 
             session.getTransaction().commit(); // закрытие сессии
 
             System.out.println("Done");
+
 
         }
         finally {
