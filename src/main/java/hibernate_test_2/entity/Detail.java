@@ -17,7 +17,7 @@ public class Detail {
     private String email;
 
 
-    @OneToOne(mappedBy = "empDetail" , cascade =  CascadeType.ALL) // mapedBy говорит hibernate , что связь между классами и ее нужно найти в поле ""
+    @OneToOne(mappedBy = "empDetail" , cascade =  {CascadeType.PERSIST, CascadeType.REFRESH}) // mapedBy говорит hibernate , что связь между классами и ее нужно найти в поле ""
 
     private Employee employee ;
     public Detail() {
