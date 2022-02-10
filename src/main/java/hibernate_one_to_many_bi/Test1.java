@@ -25,11 +25,12 @@ Department department = session.get(Department.class , 3);
 
             System.out.println("Show department");
             System.out.println(department);
-            System.out.println("Show employees of the department");
-            System.out.println(department.getEmps());
 
 
            session.getTransaction().commit(); // закрытие сессии
+            System.out.println("Show employees of the department");
+            System.out.println(department.getEmps());
+
 //
 //            System.out.println("Done");
 //            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
