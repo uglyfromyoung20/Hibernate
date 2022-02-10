@@ -23,7 +23,7 @@ public class Employee {
     private int salary;
 
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.PERSIST})
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "department_id")
     private Department department;
 

@@ -61,7 +61,7 @@ public class Test1 {
             session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
             session.beginTransaction();
 
-            Department department = session.get(Department.class , 1);
+            Department department = session.get(Department.class , 2);
 
             session.delete(department);
 
