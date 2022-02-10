@@ -1,4 +1,6 @@
-package hibernate_one_to_many_bi.entity;
+package hibernate_one_to_many_uni.entity;
+
+import hibernate_one_to_many_bi.entity.Employee;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,7 +20,8 @@ public class Department {
     @Column(name = "min_salary")
     private int minSalary;
 
-    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.PERSIST} , mappedBy="department")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "department_id")
     private List<Employee> emps;
 
 
@@ -35,7 +38,6 @@ public class Department {
             emps = new ArrayList<>();
         }
      emps.add(employee);
-        employee.setDepartment(this); // ссыдка для каждого работника на этот департамент
     }
 
     public int getId() {
