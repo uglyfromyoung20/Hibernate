@@ -18,53 +18,58 @@ public class Test1 {
         Session session = null;
         try {
 
-            session = factory.getCurrentSession();//  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
-            Department dep = new Department("HR",1500,234);
+//            session = factory.getCurrentSession();//  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
+//            Department dep = new Department("HR",1500,234);
+//
+//            Employee emp = new Employee("Alexey","Alexeyev",4252312);
+//
+//            Employee emp1 = new Employee("Alexandr","Vasilkov",432412);
+//
+//            dep.addEmployeeToDepartment(emp);
+//            dep.addEmployeeToDepartment(emp1);
+//
+//
+//            session.beginTransaction();
+//
+//            session.save(dep);
+//
+//            session.getTransaction().commit(); // закрытие сессии
+//
+//            System.out.println("Done");
 
-            Employee emp = new Employee("Alexey","Alexeyev",4252312);
-
-            Employee emp1 = new Employee("Alexandr","Vasilkov",432412);
-
-            dep.addEmployeeToDepartment(emp);
-            dep.addEmployeeToDepartment(emp1);
 
 
+
+
+//            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
+//            session.beginTransaction();
+//
+//            Department department = session.get(Department.class , 1) ;
+//
+//            System.out.println(department);
+//            System.out.println(department.getEmps());
+//
+//
+//            session.getTransaction().commit(); // закрытие сессии
+//
+//            System.out.println("Done");
+
+
+
+
+
+            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
             session.beginTransaction();
 
-            session.save(dep);
+            Department department = session.get(Department.class , 1);
+
+            session.delete(department);
+
+
 
             session.getTransaction().commit(); // закрытие сессии
 
             System.out.println("Done");
-
-
-
-
-
-//            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
-//            session.beginTransaction();
-//
-//           Employee employee = session.get(Employee.class , 1);
-//
-//            System.out.println(employee);
-//            System.out.println(employee.getDepartment());
-//
-//
-//            session.getTransaction().commit(); // закрытие сессии
-//
-//            System.out.println("Done");
-//            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
-//            session.beginTransaction();
-//
-//            Employee employee = session.get(Employee.class , 2);
-//
-//            session.delete(employee);
-//
-//
-//            session.getTransaction().commit(); // закрытие сессии
-//
-//            System.out.println("Done");
-
 
 
 
