@@ -1,6 +1,6 @@
 package hibernate_one_to_many_uni.entity;
 
-import hibernate_one_to_many_bi.entity.Employee;
+import hibernate_one_to_many_uni.entity.Employee;
 
 import javax.persistence.*;
 import java.util.ArrayList;

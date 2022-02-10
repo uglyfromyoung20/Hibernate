@@ -36,6 +36,11 @@ public class Test1 {
             session.getTransaction().commit(); // закрытие сессии
 
             System.out.println("Done");
+
+
+
+
+
 //            session = factory.getCurrentSession();   //  получаем сессию , через которую получаем подключение к базе (обертка jdbc)
 //            session.beginTransaction();
 //
