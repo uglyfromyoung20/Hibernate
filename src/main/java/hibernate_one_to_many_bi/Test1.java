@@ -21,7 +21,7 @@ public class Test1 {
 
             session.beginTransaction();
             System.out.println("Get department");
-Department department = session.get(Department.class , 2);
+Department department = session.get(Department.class , 3);
 
             System.out.println("Show department");
             System.out.println(department);
